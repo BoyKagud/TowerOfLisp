@@ -43,7 +43,12 @@
 	(setq towerTo (append towerTo item))
 	(setTower t1 towerFrom)
 	(setTower t2 towerTo)
+	(moveIncrement)
 	(checkSuccess)
+	)
+
+(defun moveIncrement ()
+	(setq movesMade (+ movesMade 1))
 	)
 
 (defun spliceEndOfList (l)
@@ -116,6 +121,8 @@
 (loop
 	(format t "Minimum moves needed: ~2d " minMoves)
 	(terpri)
+	(format t "Moves made: ~2d" movesMade)
+	(terpri)
 	(format t "Enter next move (ie 'AB'): ")
 	(setq input (string (read)))
 	(move (char input 0) (char input 1))
@@ -124,4 +131,4 @@
 	)
 (terpri)
 (terpri)
-(format "CONGRATULATIONS!")
+(format t "CONGRATULATIONS!")
