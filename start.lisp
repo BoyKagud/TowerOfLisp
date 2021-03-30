@@ -1,22 +1,21 @@
-#!/usr/bin/clisp
 ;
 ; Submission for IT240
 ; Group of: Mong, Jon, Grace
 ;
-(defvar towera `(1 2 3 4 5))
-(defvar towerb ())
-(defvar towerc ())
+(setq towera ())
+(setq towerb ())
+(setq towerc ())
 
-(defvar movesMade 0)
-(defvar minMoves 0)
-(defvar numDisks 3)
-(defvar iterator 0)
+(setq movesMade 0)
+(setq minMoves 0)
+(setq numDisks 3)
+(setq iterator 0)
 
-(defvar isRunning 1)
+(setq isRunning 1)
 
 (defun initializeDisks (x)
 	(setq numDisks x)
-	(setq towera '())
+	(setq towera ())
 	(loop 
 		(setq iterator (+ iterator 1))
 		(setq towera (append towera (list iterator)))
@@ -32,11 +31,11 @@
 	(setq stackTop (nth 0 (last towerFrom)))
 	(setq stackBottom (nth 0 (last towerTo)))
 	(if (not stackTop)
-		(return-from move nil)
+		(return-from move)
 		)
 	(if (and stackBottom stackTop)
 		(if (< stackBottom stackTop)
-			(return-from move nil)
+			(return-from move)
 			)
 		)
 	(setq towerFrom (spliceEndOfList towerFrom))
@@ -53,10 +52,9 @@
 
 (defun spliceEndOfList (l)
 	(if (= (length l) 1)
-		(return-from spliceEndOfList nil)
+		(return-from spliceEndOfList)
 		)
 	(setq loopend (- (length l) 1))
-	(setq iterator 0)
 	(setq newlist ())
 	(loop 
 		(setq newlist (append newlist (list (nth iterator l))))
