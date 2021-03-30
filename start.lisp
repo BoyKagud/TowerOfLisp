@@ -122,7 +122,7 @@
 	(format t "Moves made: ~2d" movesMade)
 	(terpri)
 	(format t "Enter next move (ie 'AB'): ")
-	(setq input (string (read-line nil nil nil)))
+	(setq input (string (read)))
 	(move (char input 0) (char input 1))
 	(displayTowers)
 	(when (= isRunning 0) (return isRunning))
